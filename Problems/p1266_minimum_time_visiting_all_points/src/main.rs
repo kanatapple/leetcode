@@ -16,20 +16,8 @@ impl Solution {
                     break;
                 }
 
-                current[0] += if current[0] == points[index + 1][0] {
-                    0
-                } else if current[0] < points[index + 1][0] {
-                    1
-                } else {
-                    -1
-                };
-                current[1] += if current[1] == points[index + 1][1] {
-                    0
-                } else if current[1] < points[index + 1][1] {
-                    1
-                } else {
-                    -1
-                };
+                current[0] += (points[index + 1][0] - current[0]).signum();
+                current[1] += (points[index + 1][1] - current[1]).signum();
 
                 seconds += 1;
             }
