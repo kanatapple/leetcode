@@ -6,12 +6,11 @@ impl Solution {
         let length = arr.len();
         for i in 0..(length - 2) {
             for j in (i + 1)..(length - 1) {
-                for k in (j + 1)..length {
-                    if (arr[i] - arr[j]).abs() <= a
-                        && (arr[j] - arr[k]).abs() <= b
-                        && (arr[i] - arr[k]).abs() <= c
-                    {
-                        count += 1;
+                if (arr[i] - arr[j]).abs() <= a {
+                    for k in (j + 1)..length {
+                        if (arr[j] - arr[k]).abs() <= b && (arr[i] - arr[k]).abs() <= c {
+                            count += 1;
+                        }
                     }
                 }
             }
