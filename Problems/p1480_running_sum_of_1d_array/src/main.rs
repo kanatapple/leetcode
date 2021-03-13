@@ -3,12 +3,12 @@ struct Solution;
 impl Solution {
     pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
         let mut sum = 0;
-        let mut sums = Vec::new();
-        nums.iter().for_each(|num| {
-            sum += num;
-            sums.push(sum);
-        });
-        sums
+        nums.iter()
+            .map(|num| {
+                sum += num;
+                sum
+            })
+            .collect()
     }
 }
 
